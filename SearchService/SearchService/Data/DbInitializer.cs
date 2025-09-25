@@ -2,7 +2,6 @@
 using MongoDB.Entities;
 using SearchService.Entities;
 using SearchService.Services;
-using System.Text.Json;
 
 namespace SearchService.Data;
 
@@ -18,8 +17,6 @@ public class DbInitializer
             .Key(x => x.Model, KeyType.Text)
             .Key(x => x.Color, KeyType.Text)
             .CreateAsync();
-
-        var count = await DB.CountAsync<Item>();
 
         using var scope = app.Services.CreateScope();
 
